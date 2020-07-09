@@ -24,9 +24,9 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) console.log(`mysql err message:${err}`);
 });
-let num = 0;
-app.get(`/Subway/${num}`, (req, res) => {
+app.get('/Subway/:lineNum', (req, res) => {
   console.log('api요청 들어옴');
+  const num = req.params.lineNum;
   connection.query(`select * from line${num}`, (err, rows, field) =>
     res.send(rows)
   );
