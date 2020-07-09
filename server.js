@@ -24,6 +24,10 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) console.log(`mysql err message:${err}`);
 });
+
+/////////////////////////
+///1~9호선은 이걸로처리///
+////////////////////////
 app.get('/Subway/:lineNum', (req, res) => {
   console.log('api요청 들어옴');
   const num = req.params.lineNum;
