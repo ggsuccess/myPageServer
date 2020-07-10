@@ -23,6 +23,7 @@ const connection = mysql.createConnection({
 });
 connection.connect((err) => {
   if (err) console.log(`mysql err message:${err}`);
+  throw err;
 });
 
 /////////////////////////
@@ -36,4 +37,9 @@ app.get('/Subway/:lineNum', (req, res) => {
   );
 });
 
+app.get('/Subway/airLine', (req, res) => {
+  connection.query('select * from airline', (err, rows, field) =>
+    res.send(rows)
+  );
+});
 app.listen(port, () => console.log(`server on port ${port}`));
