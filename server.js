@@ -23,7 +23,6 @@ const connection = mysql.createConnection({
 });
 connection.connect((err) => {
   if (err) console.log(`mysql err message:${err}`);
-  throw err;
 });
 
 /////////////////////////
