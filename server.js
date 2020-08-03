@@ -41,4 +41,20 @@ app.get('/Subway/airLine', (req, res) => {
     res.send(rows)
   );
 });
+
+app.post('/SignUp', (req, res) => {
+  const id = req.body.id;
+  const pw = req.body.pw;
+  const nick = req.body.nick;
+  const gender = req.body.gender;
+  const birth = req.body.birth;
+  const curDate = new Date();
+  connection.query(
+    `insert into users values(?,?,?,?,?,?)`,
+    [id, pw, nick, birth, curDate, gender],
+    (err, rows, field) => {
+      res.send(rows);
+    }
+  );
+});
 app.listen(port, () => console.log(`server on port ${port}`));
