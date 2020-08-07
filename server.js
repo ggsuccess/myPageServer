@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const data = fs.readFileSync('./database.json');
 const conf = JSON.parse(data);
@@ -43,6 +43,7 @@ app.get('/Subway/airLine', (req, res) => {
 });
 
 app.post('/SignUp', (req, res) => {
+  console.log('회원가입 요청 들어옴');
   const id = req.body.id;
   const pw = req.body.pw;
   const nick = req.body.nick;
