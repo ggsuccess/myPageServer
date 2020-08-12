@@ -43,7 +43,7 @@ app.get('/Subway/airLine', (req, res) => {
 });
 
 app.post('/SignUp', (req, res) => {
-  console.log('회원가입 요청 들어옴');
+  console.log('회원가입 요청 들어옴' + req);
   const id = req.body.id;
   const pw = req.body.pw;
   const nick = req.body.nick;
@@ -57,5 +57,9 @@ app.post('/SignUp', (req, res) => {
       res.send(rows);
     }
   );
+});
+
+app.post('/Login', (req, res) => {
+  console.log('로그인 요청');
 });
 app.listen(port, () => console.log(`server on port ${port}`));
